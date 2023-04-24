@@ -2,20 +2,69 @@
   "name": "knownsec-fed",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
+  "author": {
+    "name": "malred",
+    "email": "malguy2022@gmail.com",
+    "url": "https://malred.github.io/"
+  },
+  "description": "这是一个测试react+electron的app",
+  "main": "main.js",
+  "build": {
+    "productName": "appName",
+    "appId": "appName",
+    "asar": true,
+    "extends": null,
+    "directories": {
+      "output": "release/${version}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "linux": {}
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.1.1",
+    "@electron-forge/maker-deb": "^6.1.1",
+    "@electron-forge/maker-rpm": "^6.1.1",
+    "@electron-forge/maker-squirrel": "^6.1.1",
+    "@electron-forge/maker-zip": "^6.1.1",
+    "electron": "^22.0.0"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-win-state": "^1.1.22",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "rstart": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject", 
+    "dev": "electron .",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "eslintConfig": {
     "extends": [
